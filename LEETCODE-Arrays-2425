@@ -1,0 +1,24 @@
+class Solution {
+    public int xorAllNums(int[] nums1, int[] nums2) {
+       int n=nums1.length;
+       int m=nums2.length;
+       int ans=0;
+       HashMap<Integer,Integer> mp=new HashMap<>();
+       for(int x:nums1)
+       {
+        mp.put(x,mp.getOrDefault(x,0)+m);
+       } 
+       for(int x:nums2)
+       {
+        mp.put(x,mp.getOrDefault(x,0)+n);
+       }
+       for(int num:mp.keySet())
+       {
+        if(mp.get(num)%2!=0)
+        {
+            ans^=num;
+        }
+       }
+       return ans;
+    }
+}
